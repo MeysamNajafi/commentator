@@ -25,7 +25,6 @@ const getEnvVars = async (context: vscode.ExtensionContext) => {
   const apiKeyName = "api_key";
   const apiModelName = "api_model";
 
-  // Retrieve a secret
   let apiKey = await secretStorage.get(apiKeyName);
   let apiModel = await secretStorage.get(apiModelName);
 
@@ -70,7 +69,6 @@ export function activate(context: vscode.ExtensionContext) {
         const selectionStart = selection.start.line;
         const selectionEnd = selection.end.line;
 
-        // get lines
         for (let index = selectionStart; index <= selectionEnd; index++) {
           lines.push(editor.document.lineAt(index));
         }
