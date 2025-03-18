@@ -1,7 +1,7 @@
 {
-    "name": "commentator",
+    "name": "commentator-translate",
     "publisher": "MeysamNajafi",
-    "displayName": "commentator",
+    "displayName": "Commentator - Translate Comments",
     "description": "Translate comments",
     "repository": {
         "type": "git",
