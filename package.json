@@ -3,6 +3,10 @@
     "publisher": "MeysamNajafi",
     "displayName": "commentator",
     "description": "Translate comments",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MeysamNajafi/commentator"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.98.0"
