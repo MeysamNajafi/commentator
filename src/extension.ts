@@ -65,7 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
       if (editor) {
         const selection = editor.selection;
 
-        const lines = [];
+        const lines: vscode.TextLine[] = [];
         const selectionStart = selection.start.line;
         const selectionEnd = selection.end.line;
 
@@ -84,9 +84,11 @@ export function activate(context: vscode.ExtensionContext) {
                       text: `Consider that you are a translator. Translate this text which is persian to english.
                       Delete anything related to programing languages comment notation in the text like // or /* or */
                       Note that the context of this text is about programming.
-                      Also insert a \n after each part.`,
+                      Go to new line by each line of comment.
+                      This is the comment:
+                      ${lines.map((line) => line.text).join("\n")}
+                      `,
                     },
-                    ...lines.map((line) => ({ text: line.text })),
                   ],
                 },
               ],
@@ -105,6 +107,10 @@ export function activate(context: vscode.ExtensionContext) {
 
           for await (const [index, line] of lines.entries()) {
             await editor.edit((editBuilder) => {
+              if (!translatedTextAsLines[index]) {
+                editBuilder.delete(line.range);
+                return;
+              }
               editBuilder.replace(
                 line.range,
                 "// " + translatedTextAsLines[index]
