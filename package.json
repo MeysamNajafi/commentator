@@ -1,6 +1,7 @@
 {
-    "name": "commenti",
-    "displayName": "commenti",
+    "name": "commentator",
+    "publisher": "MeysamNajafi",
+    "displayName": "commentator",
     "description": "Translate comments",
     "version": "0.0.1",
     "engines": {
